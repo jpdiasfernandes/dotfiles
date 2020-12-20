@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/jose/me/adventofcode2020/day2'
+let g:netrw_dirhist_4='/home/jose/me/adventofcode2020'
+let g:netrw_dirhist_3='/home/jose/me/adventofcode2020/day1'
+let g:netrw_dirhist_2='/home/jose/.config/polybar'
+let g:netrw_dirhist_1='/home/jose/Projetos/balanceMg'
+let g:netrw_dirhist_0='/home/jose/Projetos'
+let g:netrw_dirhist_9='/home/jose'
+let g:netrw_dirhist_8='/home/jose/.config/i3'
+let g:netrw_dirhist_7='/home/jose/.config'
+let g:netrw_dirhist_6='/home/jose'
