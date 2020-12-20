@@ -39,10 +39,7 @@ promptinit
 
 alias v="nvim"
 alias ssh_search="ssh a93163@search.di.uminho.pt"
-# conway () {
-# 	make $HOME/Projetos/conways_game/ &
-# 	eval $HOME/Projetos/conways_game/conways_game
-# }
+
 dualscreen () {
     if [[ "$1" == "default" ]]; then
        xrandr --output DP-4 --auto --output HDMI-0 --auto --left-of DP-4
