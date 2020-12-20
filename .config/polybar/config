@@ -1,0 +1,122 @@
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[colors]
+background = #c7a43a
+foreground = #57524a
+honey = #826a21
+honey-lighter = #a18532
+amber = #ad9036
+
+[bar/top]
+enable-ipc = true
+override-redirect =false
+monitor = ${env:MONITOR:}
+monitor-strict = false
+monitor-exact = true
+width = 100%
+height = 35
+
+#fonts
+
+font-0 = Monaco:style=Regular
+font-1 = "Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Regular"
+font-2 = "Font Awesome 5 Free,Font Awesome 5 Free Solid:style=Solid"
+font-3 = "FontAwesome:style=Regular"
+font-4 = "Material Icons:style=Regular"
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+border-bottom-size = 5
+border-bottom-color = #f7ca77
+#padding-right = 2
+padding-left = 2
+
+
+
+
+#Modules assignment
+modules-right = network battery date
+modules-left = ewmh
+modules-center = spotify previous playpause next
+
+
+
+
+[module/date]
+type = internal/date
+interval = 1.0
+date = "%d/%m/%Y"
+time = %H:%M:%S
+format = "<label>"
+label = "  %date%   %time% "
+label-background = ${colors.honey}
+label-foreground = #b0a276
+
+[module/battery]
+type = internal/battery
+full-at = 99
+battery = BAT0
+adapter = ADP0
+poll-interval = 10
+format-discharging = <label-discharging>
+label-discharging = "  %percentage%% "
+label-discharging-background =${colors.honey-lighter}
+format-charging = <label-charging>
+label-charging = " %{T3}%{T-} %percentage%% "
+label-charging-background = ${colors.honey-lighter}
+
+[module/network]
+type = internal/network
+interface = wlp0s20f3
+interval = 5
+format-connected = <label-connected>
+label-connected = " %{A1:nm-connection-editor:} %essid%%{A} "
+label-connected-background = ${colors.amber}
+
+[module/ewmh]
+type = internal/xworkspaces
+pin-workspaces = true
+format = <label-state>
+label-active = "  %name% "
+
+#Spotify -> not mine
+[module/previous]
+type = custom/ipc
+format-font = 2
+; Default
+hook-0 = echo ""
+; When spotify active
+hook-1 = echo "  "
+click-left = "spotifyctl -q previous"
+
+
+[module/next]
+type = custom/ipc
+format-font = 2
+; Default
+hook-0 = echo ""
+; When spotify active
+hook-1 = echo "  "
+click-left = "spotifyctl -q next"
+
+
+[module/playpause]
+type = custom/ipc
+format-font = 2
+; Default
+hook-0 = echo ""
+; Playing
+hook-1 = echo "  "
+; Paused
+hook-2 = echo "  "
+click-left = "spotifyctl -q playpause"
+
+
+[module/spotify]
+type = custom/ipc
+; Default
+hook-0 = echo ""
+; Playing/paused show song name and artist
+hook-1 = spotifyctl -q status --format ' %artist%: %title%' --max-length 40 --trunc '...'
