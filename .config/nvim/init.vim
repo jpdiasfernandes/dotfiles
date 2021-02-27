@@ -8,6 +8,7 @@ Plug 'rstacruz/vim-closer'
 
 Plug 'Raimondi/delimitMate'
 
+
 call plug#end()
 
 " use <tab> for trigger completion and navigate to the next complete item
@@ -26,3 +27,5 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 
 
 :set number
+
+
