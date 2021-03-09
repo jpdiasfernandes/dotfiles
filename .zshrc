@@ -58,12 +58,17 @@ dualscreen () {
 }
 #Goes to the university directory
 uni () {
-	cd $HOME/Universidade/$1ano$2sem/
+	cd $HOME/Universidade/$1ano$2sem/$3
 }
 
 #Does a cd from the Project directory
 cdpr () {
 	cd $HOME/Projetos/$1
+}
+
+#Goes to the pratice exercises directory of a specific class and lesson number
+pl () {
+	cd  "$(find $HOME/Universidade/ -type d -name $1 | head -1)" && cd PL/PL$2
 }
 
 #asdf
