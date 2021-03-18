@@ -18,6 +18,8 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'vim-airline/vim-airline-themes'
 
+" Clang formatting
+Plug 'rhysd/vim-clang-format'
 
 call plug#end()
 
