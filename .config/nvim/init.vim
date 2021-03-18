@@ -4,9 +4,19 @@ Plug 'neoclide/coc.nvim', {'branch' : 'release'}
 
 Plug 'preservim/nerdtree'
 
-Plug 'rstacruz/vim-closer'
+" Autoclose
+Plug 'cohama/lexima.vim'
 
-Plug 'Raimondi/delimitMate'
+" Colorscheme
+Plug 'morhetz/gruvbox'
+
+" Tagbar for functions prototypes and more
+Plug 'majutsushi/tagbar'
+
+" Airline plugins
+Plug 'vim-airline/vim-airline'
+
+Plug 'vim-airline/vim-airline-themes'
 
 
 call plug#end()
@@ -25,7 +35,20 @@ inoremap <silent><expr> <Tab>
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
+set termguicolors
+set background=light
 
-:set number
+let g:gruvbox_italic=1
+
+" Colorscheme
+autocmd vimenter * ++nested colorscheme gruvbox
+
+" Airline theme
+let g:airline_theme='gruvbox'
+let g:airline_powerline_fonts = 1
+
+
+
+:set relativenumber
 
 

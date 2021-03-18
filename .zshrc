@@ -32,7 +32,10 @@ export PATH="$HOME/scripts:$PATH"
 export PATH="/home/jose/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="$HOME/IJ/idea-IC-203.7148.57/bin:$PATH"
 export PATH="$HOME/Projetos:$PATH"
+export PATH="$HOME/.cabal/bin:$PATH"
 
+#----Neovim Colorscheme---#
+source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 
 PS1='%F{white}%B%~%b%f '$'\U1f9ed'' '
 
