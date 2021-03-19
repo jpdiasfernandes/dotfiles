@@ -88,6 +88,8 @@ bindsym $mod+a focus parent
 
 # bind screenshots
 bindsym Print exec maim -s -o | xclip -selection clipboard -t image/png
+
+bindsym $mod+Print exec maim -s -o ~/Pictures/$(date +%s).png
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -160,12 +162,12 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # You can also use any non-zero value if you'd like to have a border
-for_window [class=".*"] border pixel 3
+for_window [class="^.*"] border pixel 3
+
 
 #gaps
 gaps inner 10 gaps outer 5
 
-smart_borders on
 default_border pixel 3
 
 set $mode_gaps Toggle gaps: (1) on (2) off
@@ -177,12 +179,22 @@ mode "$mode_gaps" {
     bindsym Escape mode "default"
 }
 
+bindsym $mod+p mode "$mode_borders"
+set $mode_borders Toggle smart_borders: (1) on (2) off
+mode "$mode_borders" {
+	bindsym 1 mode "default", border pixel 3
+	bindsym 2 mode "default", border pixel 0
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
 #smart_gaps on
 
+
 # class                 border  backgr. text    indicator child_border
-client.focused          #8b4200 #285577 #ffffff #2e9ef4   #cab24b 
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #9a7d0a
-client.unfocused        #333333 #222222 #888888 #292d2e   #9a7d0a  
-client.urgent           #2f343a #900000 #ffffff #900000   #9a7d0a
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #9a7d0a
+client.focused          #8b4200 #285577 #ffffff  #cab24b  #cab24b 
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #94802f 
+client.unfocused        #333333 #222222 #888888 #292d2e   #94802f
+#client.urgent           #2f343a #900000 #ffffff #900000  #cab24b
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #cab24b
 
