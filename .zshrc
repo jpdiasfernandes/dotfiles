@@ -35,7 +35,6 @@ export PATH="$HOME/Projetos:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
 
 #----Neovim Colorscheme---#
-source "$HOME/.vim/bundle/gruvbox/gruvbox_256palette.sh"
 
 PS1='%F{white}%B%~%b%f '$'\U1f9ed'' '
 
@@ -61,7 +60,7 @@ dualscreen () {
 }
 #Goes to the university directory
 uni () {
-	cd $HOME/Universidade/$1ano$2sem/$3
+	cd "$(find $HOME/Universidade/ -type d -name $1 | head -1)"
 }
 
 #Does a cd from the Project directory
