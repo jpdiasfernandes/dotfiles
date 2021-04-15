@@ -21,6 +21,16 @@ Plug 'vim-airline/vim-airline-themes'
 " Clang formatting
 Plug 'rhysd/vim-clang-format'
 
+" Calendar
+Plug 'itchyny/calendar.vim'
+
+"R
+Plug 'jalvesaq/Nvim-R'
+
+"Fugitive (git plugin)
+Plug 'tpope/vim-fugitive'
+
+
 call plug#end()
 
 " use <tab> for trigger completion and navigate to the next complete item
@@ -48,9 +58,14 @@ autocmd vimenter * ++nested colorscheme gruvbox
 " Airline theme
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#branch#enabled=1
 
+" Calendar setup
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
 
-
-:set relativenumber
+:set nu rnu
+" Sets color collumn
+:set colorcolumn=80
 
 

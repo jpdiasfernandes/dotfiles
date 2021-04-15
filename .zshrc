@@ -7,7 +7,7 @@ setopt extendedglob
 bindkey -v
 export KEYTIMEOUT=1
 function zle-line-init zle-keymap-select {
-    VIM_PROMPT="%{$fg_bold[white]%}[ESC]"
+    VIM_PROMPT="%{$fg_bold[white]%}[NORMAL]"
     RPROMPT="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/[INS]}"
     zle reset-prompt
 }
@@ -34,7 +34,6 @@ export PATH="$HOME/IJ/idea-IC-203.7148.57/bin:$PATH"
 export PATH="$HOME/Projetos:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
 
-#----Neovim Colorscheme---#
 
 PS1='%F{white}%B%~%b%f '$'\U1f9ed'' '
 
@@ -46,6 +45,9 @@ alias v="nvim"
 alias ssh_search="ssh a93163@search.di.uminho.pt"
 alias cdt="uni 2 1 && cd CD/Trabalho"
 alias deb="build/debug/shafa"
+alias ls="exa --icons"
+alias pdfopen="apvlv"
+alias li3="uni LI3 && cd PL/Trabalho"
 
 dualscreen () {
     if [[ "$1" == "default" ]]; then
@@ -73,7 +75,22 @@ pl () {
 	cd  "$(find $HOME/Universidade/ -type d -name $1 | head -1)" && cd PL/PL$2
 }
 
+b () {
+	xrandr --output DP-4 --brightness $1
+}
+
+
 #asdf
 . $HOME/.asdf/asdf.sh 
 
 alias config="/usr/bin/git --git-dir=/home/jose/dotfiles --work-tree=/home/jose"
+
+#fzf
+export FZF_DEFAULT_OPT="fzf "
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--layout=reverse --border --padding=1 \
+	--preview '(highlight -O ansi -l {} 2> /dev/null || bat {} || tree -C {}) 2> /dev/null | head -200'"
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
