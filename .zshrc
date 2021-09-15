@@ -34,8 +34,7 @@ export PATH="$HOME/IJ/idea-IC-203.7148.57/bin:$PATH"
 export PATH="$HOME/Projetos:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
 
-
-PS1='%F{white}%B%~%b%f '$'\U1f9ed'' '
+PS1=' %F{%(?.136.160)}%B%~%b%f '$'\U1f9ed'' '
 
 setopt COMPLETE_ALIASES
 autoload -Uz promptinit
@@ -46,17 +45,25 @@ alias ssh_search="ssh a93163@search.di.uminho.pt"
 alias cdt="uni 2 1 && cd CD/Trabalho"
 alias deb="build/debug/shafa"
 alias ls="exa --icons"
-alias pdfopen="apvlv"
-alias li3="uni LI3 && cd PL/Trabalho"
+alias li3="uni LI3 && cd PL/Trabalho/project_java"
+alias poo="uni POO && cd Trabalho"
+alias so="uni SO && cd trabalho"
+alias pdf="zathura"
+alias update-grub="grub-mkconfig -o /boot/grub/grub.cfg"
+#Funny trick but not sure if there is a prettier way of using sudo with aliases
+alias sudo="sudo "
 
 dualscreen () {
-    if [[ "$1" == "default" ]]; then
+	if [[ "$1" == "default" ]]; then
        xrandr --output DP-4 --auto --output HDMI-0 --auto --left-of DP-4
-    elif [[ "$1" == "above" ]]; then
+    	elif [[ "$1" == "above" ]]; then
 	xrandr --output DP-4 --auto --output HDMI-0 --auto --above DP-4
-    else xrandr --output $1 --auto --output $2 --auto --$3-of $1
+	elif [[ "$1" == right ]];then
+	xrandr --output DP-4 --auto --output HDMI-0 --auto --right-of DP-4
+
+    	else xrandr --output $1 --auto --output $2 --auto --$3-of $1
 	
-    fi
+    	fi
     #calling nitrogen since it doesn't seem to update automatically
     nitrogen --restore
 }
@@ -67,7 +74,7 @@ uni () {
 
 #Does a cd from the Project directory
 cdpr () {
-	cd $HOME/Projetos/$1
+	cd "$(find $HOME/Projetos/ -type d -iname "*$1*" | head -1)"
 }
 
 #Goes to the pratice exercises directory of a specific class and lesson number
@@ -78,7 +85,6 @@ pl () {
 b () {
 	xrandr --output DP-4 --brightness $1
 }
-
 
 #asdf
 . $HOME/.asdf/asdf.sh 
@@ -94,3 +100,10 @@ export FZF_CTRL_T_OPTS="--layout=reverse --border --padding=1 \
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
