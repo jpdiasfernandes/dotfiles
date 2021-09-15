@@ -74,7 +74,7 @@ uni () {
 
 #Does a cd from the Project directory
 cdpr () {
-	cd "$(find $HOME/Projetos/ -type d -iname "*$1*" | head -1)"
+	cd "$(find $HOME/Projetos/ -maxdepth 1 -type d -iname "*$1*" | head -1)"
 }
 
 #Goes to the pratice exercises directory of a specific class and lesson number
