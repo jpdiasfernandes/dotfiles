@@ -30,6 +30,9 @@ Plug 'jalvesaq/Nvim-R'
 "Fugitive (git plugin)
 Plug 'tpope/vim-fugitive'
 
+Plug 'glacambre/firenvim', {'do': {_ -> firenvim#install(0)}}
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 call plug#end()
 
