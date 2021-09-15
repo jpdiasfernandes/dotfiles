@@ -1,6 +1,7 @@
+
 configuration {
-modi: "window,drun,ssh,combi,file-browser";
- theme: "solarized";
- font: "monaco 13";
- combi-modi: "window,drun,ssh";
+	modi: "window,drun";
+	font: "monaco 14";
+	theme: "gruvbox-light-soft";
 }
+
