@@ -36,10 +36,10 @@ bindsym $mod+Shift+q kill
 # start rofi
 bindsym $mod+d mode "rofi"
 mode "rofi" {
-	bindsym r exec rofi -show run
-	bindsym f exec rofi -show file-browser
-	bindsym w exec rofi -show window
-	bindsym s exec rofi -show ssh
+	bindsym r mode "default"exec rofi -show run
+	bindsym f mode "default" exec rofi -show file-browser
+	bindsym w mode "default" exec rofi -show window
+	bindsym s mode "default" exec rofi -show ssh
 
 	bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -175,6 +175,8 @@ bindsym $mod+r mode "resize"
 # You can also use any non-zero value if you'd like to have a border
 for_window [class="^.*"] border pixel 3
 
+# Setting brightness 
+bindsym XF86MonBrightnessUp exec xrandr --output DP-4 --brightness 0.8
 
 #gaps
 gaps inner 10 gaps outer 5
