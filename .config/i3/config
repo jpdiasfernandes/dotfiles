@@ -176,7 +176,8 @@ bindsym $mod+r mode "resize"
 for_window [class="^.*"] border pixel 3
 
 # Setting brightness 
-bindsym XF86MonBrightnessUp exec xrandr --output DP-4 --brightness 0.8
+bindsym XF86MonBrightnessUp exec xrandr --output DP-4 --brightness 1
+bindsym XF86MonBrightnessDown exec xrandr --output DP-4 --brightness 0.5
 
 #gaps
 gaps inner 10 gaps outer 5
