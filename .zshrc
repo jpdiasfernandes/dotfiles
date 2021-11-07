@@ -33,6 +33,7 @@ export PATH="/home/jose/.gem/ruby/2.7.0/bin:$PATH"
 export PATH="$HOME/IJ/idea-IC-203.7148.57/bin:$PATH"
 export PATH="$HOME/Projetos:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
+export PATH="$HOME/Projetos/conways_game:$PATH"
 
 PS1=' %F{%(?.136.160)}%B%~%b%f '$'\U1f9ed'' '
 
@@ -69,7 +70,7 @@ dualscreen () {
 }
 #Goes to the university directory
 uni () {
-	cd "$(find $HOME/Universidade/ -type d -name $1 | head -1)"
+	cd "$(find $HOME/Universidade/ -maxdepth 2 -type d -iname $1 | head -1)"
 }
 
 #Does a cd from the Project directory
@@ -79,11 +80,13 @@ cdpr () {
 
 #Goes to the pratice exercises directory of a specific class and lesson number
 pl () {
-	cd  "$(find $HOME/Universidade/ -type d -name $1 | head -1)" && cd PL/PL$2
+	cd  "$(find $HOME/Universidade/ -maxdepth 2 -type d -iname $1 | head -1)" && cd PL/PL$2
 }
 
 b () {
-	xrandr --output DP-4 --brightness $1
+	xrandr --output DP-4 --brightness $1 &
+	xrandr --output HDMI-0 --brightness $1
+
 }
 
 #asdf
